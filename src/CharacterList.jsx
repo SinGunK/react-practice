@@ -1,8 +1,11 @@
 import { useState } from 'react';
-import {characters} from './characters';
+import { characters } from './characters';
+import { useNavigate } from 'react-router-dom';
 
 const CharacterList = () => {
     const [chosenChar, setchosenChar] = useState(null);
+    const navigate = useNavigate();
+
     console.log(characters);
     return(
         <div>
@@ -11,11 +14,7 @@ const CharacterList = () => {
                 <div 
                     key={char.id}
                     onClick={() => {
-                        if(chosenChar?.id ===char.id) {
-                            setchosenChar(null);
-                        } else {
-                            setchosenChar(char);
-                        }
+                        setchosenChar(chosenChar?.id === char.id ? null : char);
                     }}
                 >
                     <strong>{char.name}</strong>
@@ -23,7 +22,7 @@ const CharacterList = () => {
                         <div>
                             <p>{char.job}</p>
                             <p>LV.{char.level}</p>
-                            <button>게임 시작</button>
+                            <button onClick={() => navigate('/game')}>게임 시작</button>
                         </div>
                     )}
                 </div>
