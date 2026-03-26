@@ -3,7 +3,7 @@ import { characters } from './characters';
 import { useNavigate } from 'react-router-dom';
 
 const CharacterList = () => {
-    const [chosenChar, setchosenChar] = useState(null);
+    const [SelectedChar, setSelectedChar] = useState(null);
     const navigate = useNavigate();
 
     console.log(characters);
@@ -14,15 +14,19 @@ const CharacterList = () => {
                 <div 
                     key={char.id}
                     onClick={() => {
-                        setchosenChar(chosenChar?.id === char.id ? null : char);
+                        setSelectedChar(SelectedChar?.id === char.id ? null : char);
                     }}
                 >
                     <strong>{char.name}</strong>
-                    {chosenChar?.id === char.id && (
+                    {SelectedChar?.id === char.id && (
                         <div>
                             <p>{char.job}</p>
                             <p>LV.{char.level}</p>
-                            <button onClick={() => navigate('/game')}>게임 시작</button>
+                            <button onClick={(e) => {
+                                e.stopPropagation();
+                                navigate('/game', { state: {char:SelectedChar}}) 
+                                /*페이지 이동 시 키(char)의 SelectedChar를 갖고감*/
+                                }}>게임 시작</button>
                         </div>
                     )}
                 </div>

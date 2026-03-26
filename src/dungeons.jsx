@@ -1,0 +1,51 @@
+export const dungeons = [
+    {
+        id: 1,
+        name: "달팽이",
+        reqPower: 100,
+        level: 1,
+        expReward: 5,
+    },
+    {
+        id: 2,
+        name: "슬라임",
+        reqPower: 300,
+        level: 5,
+        expReward: 15,
+    },
+    {
+        id: 3,
+        name: "주황버섯",
+        reqPower: 800,
+        level: 15,
+        expReward: 30,
+    },
+    {
+        id: 4,
+        name: "예티",
+        reqPower: 2000,
+        level: 30,
+        expReward: 70,
+    },
+    {
+        id: 5,
+        name:"핑크빈",
+        reqPower: 5000,
+        level: 50,
+        expReward: 150,
+    },
+    {
+        id: 6,
+        name:"혼테일",
+        reqPower: 500000,
+        level: 150,
+        expReward: 50000,
+    },
+    {
+        id: 7,
+        name:"검은 마법사",
+        reqPower: 50000000,
+        level: 275,
+        expReward: 20000000,
+    },
+]
